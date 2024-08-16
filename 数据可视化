@@ -1,0 +1,117 @@
+myChart.showLoading();
+$.get('https://fastly.jsdelivr.net/npm/echarts/map/json/world.json', function (geoJson) {
+    echarts.registerMap('world', geoJson);
+
+    function createPieSeries(center, data, color) {
+        return {
+            type: 'pie',
+            coordinateSystem: 'geo',
+            radius: '10%',
+            center: center,
+            data: data.filter(item => item.value > 0), // 过滤掉值为0的项目
+            label: {
+                formatter: '{c}', // 仅显示项目数量
+                position: 'outside', // 标签位置改为饼图外部
+                color: '#000',
+                fontSize: 20,
+                show: true
+            },
+            labelLine: {
+                show: true,
+                length: 20, // 第一段引导线的长度
+                length2: 20, // 第二段引导线的长度
+                lineStyle: {
+                    color: '#000', // 引导线的颜色
+                    width: 1
+                }
+            },
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            tooltip: {
+                formatter: '{b}: {c} ({d}%)'
+            }
+        };
+    }
+
+    const regionsData = [
+        {
+            name: '亚太',
+            center: [110, 25],
+            color: 'yellow',
+            data: [
+                { name: '2019年', value: 3, itemStyle: { color: '#ff9999' } },
+                { name: '2020年', value: 4, itemStyle: { color: '#ffcc99' } },
+                { name: '2021年', value: 5, itemStyle: { color: '#ffff99' } },
+                { name: '2022年', value: 4, itemStyle: { color: '#99ff99' } },
+                { name: '2023年', value: 9, itemStyle: { color: '#99ccff' } }
+            ]
+        },
+        {
+            name: '西亚非洲',
+            center: [25, 10],
+            color: 'red',
+            data: [
+                { name: '2019年', value: 1, itemStyle: { color: '#ff9999' } },
+                { name: '2020年', value: 9, itemStyle: { color: '#ffcc99' } },
+                { name: '2021年', value: 11, itemStyle: { color: '#ffff99' } },
+                { name: '2022年', value: 7, itemStyle: { color: '#99ff99' } },
+                { name: '2023年', value: 7, itemStyle: { color: '#99ccff' } }
+            ]
+        },
+        {
+            name: '拉美',
+            center: [-60, -15],
+            color: 'green',
+            data: [
+                { name: '2023年', value: 2, itemStyle: { color: '#99ccff' } }
+            ]
+        },
+        {
+            name: '中亚东欧',
+            center: [50, 50],
+            color: 'purple',
+            data: [
+                { name: '2019年', value: 1, itemStyle: { color: '#ff9999' } },
+                { name: '2023年', value: 2, itemStyle: { color: '#99ccff' } }
+            ]
+        }
+    ];
+
+    const series = regionsData.map(region => createPieSeries(region.center, region.data, region.color));
+
+    const option = {
+        title: {
+            text: '中工国际境外项目分布图 (2019-2023)',
+            left: 'center'
+        },
+        legend: {
+            orient: 'horizontal',
+            left: 'center',
+            top:'bottom',
+            
+            data: ['2019年', '2020年', '2021年', '2022年', '2023年'],
+            textStyle: {
+                color: '#000'
+            }
+        },
+        geo: {
+            map: 'world',
+            roam: true,
+            itemStyle: {
+                areaColor: '#ADD8E6', // 设置为粉色
+                borderColor: '#999'
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        series: series
+        
+    };
+
+    myChart.hideLoading();
+    myChart.setOption(option);
+});
+
