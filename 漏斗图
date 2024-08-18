@@ -1,0 +1,115 @@
+option = {
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c}%' // Display specific values with percentage
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left',
+    data: ['中国交建', '中国建筑'], // Updated company names in Chinese
+    textStyle: {
+      fontFamily: '宋体',
+      fontSize: 16
+    }
+  },
+  series: [
+    {
+      name: '中国交建', // Company name in Chinese
+      type: 'funnel',
+      width: '30%',  // Adjusted width
+      height: '70%', // Adjusted height
+      left: '20%',   // Adjusted position to be aligned
+      top: '10%',
+      funnelAlign: 'right', // Aligns to the right edge within its container
+      sort: 'none', // Preserve the order as provided in the data array
+      itemStyle: {
+        color: function(params) {
+          let colors = ['#002c6d', '#4f78ff', '#6e97ff', '#8eb7ff', '#b0d0ff'];
+          return colors[params.dataIndex];
+        }
+      },
+      label: {
+        show: true, // Show labels
+        position: 'inside', // Position the percentage labels inside the funnel
+        fontFamily: 'Times New Roman',
+        fontSize: 16,
+        formatter: function(params) {
+          return ` {value|${params.value}%}`; // Display year and value
+        },
+        rich: {
+          year: {
+            align: 'left',
+            fontFamily: 'Times New Roman',
+            fontSize: 16,
+            color: '#000'
+          },
+          value: {
+            align: 'right',
+            fontFamily: 'Times New Roman',
+            fontSize: 16,
+            color: '#fff'
+          }
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 2.28, name: '2019' },
+        { value: 3.21, name: '2020' },
+        { value: 3.33, name: '2021' },
+        { value: 3.27, name: '2022' },
+        { value: 3.65, name: '2023' }
+      ]
+    },
+    {
+      name: '中国建筑', // Company name in Chinese
+      type: 'funnel',
+      width: '30%',  // Adjusted width
+      height: '70%', // Adjusted height
+      left: '50%',   // Adjusted position to be aligned
+      top: '10%',
+      funnelAlign: 'left', // Aligns to the left edge within its container
+      sort: 'none', // Preserve the order as provided in the data array
+      itemStyle: {
+        color: function(params) {
+          let colors = ['#429777', '#65b77b', '#8cc99f', '#b3dbc3', '#d9eee7'];
+          return colors[params.dataIndex];
+        }
+      },
+      label: {
+        show: true, // Show labels
+        position: 'inside', // Position the percentage labels inside the funnel
+        fontFamily: 'Times New Roman',
+        fontSize: 16,
+        formatter: function(params) {
+          return ` {value|${params.value}%}`; // Display year and value
+        },
+        rich: {
+          year: {
+            align: 'left',
+            fontFamily: 'Times New Roman',
+            fontSize: 16,
+            color: '#000'
+          },
+          value: {
+            align: 'right',
+            fontFamily: 'Times New Roman',
+            fontSize: 16,
+            color: '#fff'
+          }
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 1.54, name: '2019' },
+        { value: 1.82, name: '2020' },
+        { value: 2.11, name: '2021' },
+        { value: 2.42, name: '2022' },
+        { value: 2.03, name: '2023' }
+      ]
+    }
+  ]
+};
