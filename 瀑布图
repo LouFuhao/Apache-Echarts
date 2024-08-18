@@ -1,0 +1,72 @@
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'line',
+      lineStyle: {
+        color: 'rgba(0,0,0,0.2)',
+        width: 1,
+        type: 'solid'
+      }
+    }
+  },
+  legend: {
+    data: ['中国交建', '中国建筑'],
+    
+    textStyle: {
+      fontFamily: '宋体',
+      fontSize: 16
+    }
+  },
+  singleAxis: {
+    top: 50,
+    bottom: 50,
+    axisTick: {},
+    axisLabel: {
+      fontFamily: 'Times New Roman',
+      fontSize: 16
+    },
+    type: 'time',
+    min: '2019-01-01',
+    max: '2023-12-31',
+    axisPointer: {
+      animation: true,
+      label: {
+        show: true
+      }
+    },
+    splitLine: {
+      show: true,
+      lineStyle: {
+        type: 'dashed',
+        opacity: 0.2
+      }
+    }
+  },
+  series: [
+    {
+      type: 'themeRiver',
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 20,
+          shadowColor: 'rgba(0, 0, 0, 0.8)'
+        }
+      },
+      label: {
+        show: false // Hide the labels on the river
+      },
+      data: [
+        ['2019', 27.36, '中国交建'],
+        ['2020', 24.76, '中国交建'],
+        ['2021', 21.89, '中国交建'],
+        ['2022', 31.22, '中国交建'],
+        ['2023', 33.99, '中国交建'],
+        ['2019', 39.88, '中国建筑'],
+        ['2020', 40.06, '中国建筑'],
+        ['2021', 42.34, '中国建筑'],
+        ['2022', 37.63, '中国建筑'],
+        ['2023', 39.75, '中国建筑']
+      ]
+    }
+  ]
+};
