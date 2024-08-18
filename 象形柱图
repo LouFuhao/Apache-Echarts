@@ -1,0 +1,144 @@
+const pathSymbols = {
+  company1: 'path://M830 2211 l0 -108 -31 -7 c-57 -11 -217 -95 -298 -157 -220 -165 -355 -411 -384 -699 -8 -78 -16 -115 -24 -116 -7 -1 -31 -2 -53 -2 l-40 -2 0 -55 0 -55 358 0 357 0 123 -123 122 -122 0 -213 c0 -116 -4 -212 -8 -212 -4 0 -29 22 -55 48 l-47 48 0 150 0 150 -89 87 -89 87 -336 -1 c-198 0 -336 -4 -336 -10 0 -5 33 -9 73 -9 l73 0 18 -57 c89 -283 346 -533 641 -626 85 -27 207 -47 281 -47 l44 0 0 -80 0 -80 55 0 55 0 0 382 0 381 122 124 122 123 218 0 c120 0 218 -2 218 -4 0 -3 -21 -25 -47 -50 l-48 -46 -150 0 -150 0 -93 -93 -92 -92 0 -363 c0 -235 4 -362 10 -362 6 0 10 39 10 98 l0 98 58 18 c186 59 401 225 511 396 91 140 161 362 161 509 l0 61 45 0 45 0 0 55 0 55 -332 2 c-183 0 -339 2 -345 2 -7 1 -69 57 -138 126 l-125 125 0 213 c1 116 5 212 9 212 4 0 26 -19 49 -43 l42 -43 0 -150 0 -149 96 -98 97 -98 323 3 c178 2 324 6 324 10 0 5 -27 8 -60 8 -49 0 -62 3 -67 18 -100 289 -269 489 -518 612 -119 58 -235 90 -365 99 l-95 6 -3 88 -3 87 -54 0 -55 0 0 -387 0 -388 -119 -125 -118 -125 -222 -3 c-121 -1 -221 0 -221 3 0 3 19 25 43 50 l43 44 153 2 153 1 89 91 89 91 2 373 c2 293 0 373 -9 373 -10 0 -13 -28 -13 -109z m371 -130 c250 -27 487 -161 638 -362 62 -82 135 -220 146 -276 l7 -33 -227 0 -227 0 -89 92 -89 93 0 150 0 151 -55 54 -55 54 -60 -59 -60 -59 0 -201 0 -200 152 -152 153 -153 297 0 298 0 0 -77 c0 -332 -252 -685 -582 -816 -36 -15 -71 -27 -77 -27 -8 0 -11 72 -11 228 l0 228 89 87 88 87 150 0 149 0 57 58 58 58 -58 58 -57 57 -196 5 -196 5 -155 -153 -154 -153 -5 -305 -5 -305 -65 3 c-170 8 -364 76 -504 176 -84 60 -202 187 -253 275 -43 72 -93 183 -93 208 0 10 45 13 227 13 l228 0 82 -82 83 -83 0 -150 0 -151 63 -62 63 -62 57 58 57 58 0 199 0 200 -155 155 -155 155 -298 1 -297 1 3 64 c11 263 137 516 338 680 74 60 204 136 282 163 l41 15 3 -230 3 -229 -86 -90 -85 -90 -150 0 -149 0 -58 -56 -59 -57 58 -58 58 -59 201 0 200 0 152 152 153 153 0 296 c0 162 3 299 7 302 8 9 20 9 124 -2zM945 1300 l-150 -150 153 -153 152 -152 152 152 153 153 -150 150 c-82 82 -152 150 -155 150 -3 0 -73 -68 -155 -150z m295 -15 l135 -135 -138 -138 -137 -137 -137 137 -138 138 135 135 c74 74 137 135 140 135 3 0 66 -61 140 -135z',
+  company2: 'path://M0 1125 l0 -1125 1125 0 1125 0 0 1125 0 1125 -1125 0 -1125 0 0 -1125z m925 530 l0 -290 -37 -3 -38 -3 0 188 0 188 -80 -3 -80 -4 0 -334 0 -334 120 0 120 0 -2 -377 -3 -378 -157 -3 -158 -3 0 176 0 175 40 0 40 0 0 -65 0 -65 80 0 80 0 0 165 0 165 -120 0 -120 0 0 550 0 551 158 -3 157 -3 0 -290z m340 0 l0 -290 -37 -3 -38 -3 0 188 0 188 -65 0 -65 0 0 -607 0 -608 65 0 65 0 0 271 0 270 38 -3 37 -3 0 -375 0 -375 -140 0 -140 0 -3 810 c-1 446 0 816 3 823 3 9 38 12 142 10 l138 -3 0 -290z m375 184 l0 -110 -120 3 -120 3 0 -337 0 -338 120 0 120 0 0 -105 0 -105 -120 0 -120 0 0 -165 0 -165 120 0 120 0 0 -110 0 -111 -157 3 -158 3 -3 810 c-1 446 0 816 3 823 3 9 45 12 160 12 l155 0 0 -111z m-1090 -954 l0 -175 -40 0 -40 0 0 70 0 70 -45 0 -45 0 0 -165 0 -165 45 0 45 0 0 65 0 65 40 0 40 0 0 -175 0 -175 -125 0 -125 0 0 380 0 380 125 0 125 0 0 -175z m1400 0 l0 -175 -40 0 -40 0 0 70 0 70 -45 0 -45 0 0 -165 0 -165 45 0 45 0 0 65 0 65 40 0 40 0 0 -175 0 -175 -125 0 -125 0 0 380 0 380 125 0 125 0 0 -175z',
+
+};
+
+
+const labelSetting = {
+  show: true,
+  position: 'right',
+  offset: [10, 0],
+  fontSize: 16,
+  fontFamily:'Times New Roman'
+};
+
+option = {
+  title: {
+    text: '利润总额对比 (2019-2023)',
+    top:20,
+    left:'center',
+    show:false
+  },
+ 
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  grid: {
+    containLabel: true,
+    left: 20
+  },
+  yAxis: {
+    data: ['2019', '2020', '2021', '2022', '2023'],
+    inverse: true,
+    axisLine: { show: false },
+    axisTick: { show: false },
+    axisLabel: {
+      margin: 30,
+      fontSize: 14,
+      fontFamily:'Times New Roman'
+    },
+    axisPointer: {
+      label: {
+        show: true,
+        margin: 30
+      }
+    }
+  },
+  xAxis: {
+    splitLine: { show: false },
+    axisLabel: { show: false },
+    axisTick: { show: false },
+    axisLine: { show: false }
+  },
+  series: [
+    {
+      name: 'China Communications Construction',
+      type: 'pictorialBar',
+      label:labelSetting,
+      
+      symbolRepeat: true,
+      symbolSize: ['80%', '60%'],
+      barCategoryGap: '40%',
+      
+      data: [
+        {
+          value: 267.14,
+          symbol: pathSymbols.company1,
+          
+        },
+        {
+          value: 253.83,
+          symbol: pathSymbols.company1,
+        
+        },
+        {
+          value: 287.48,
+          symbol: pathSymbols.company1
+        },
+        {
+          value: 312.69,
+          symbol: pathSymbols.company1
+        },
+        {
+          value: 363.64,
+          symbol: pathSymbols.company1
+        }
+      ]
+    },
+    {
+      name: 'China State Construction',
+      type: 'pictorialBar',
+      barGap: '10%',
+      label: labelSetting,
+      symbolRepeat: true,
+      symbolSize: ['80%', '60%'],
+      
+      data: [
+        {
+          value: 814.68,
+          symbol: pathSymbols.company2,
+          itemStyle: {
+  color: '#03a9f4' // Set the color to blue for company2
+}
+
+        },
+        {
+          value: 944.82,
+          symbol: pathSymbols.company2,
+          itemStyle: {
+  color: '#03a9f4' // Set the color to blue for company2
+}
+
+        },
+        {
+          value: 1010.38,
+          symbol: pathSymbols.company2,
+          itemStyle: {
+  color: '#03a9f4' // Set the color to blue for company2
+}
+
+        },
+        {
+          value: 888.35,
+          symbol: pathSymbols.company2,
+          itemStyle: {
+  color: '#03a9f4' // Set the color to blue for company2
+}
+
+        },
+        {
+          value: 929.95,
+          symbol: pathSymbols.company2,
+          itemStyle: {
+  color: '#03a9f4' // Set the color to blue for company2
+}
+
+        }
+      ]
+    }
+  ]
+};
