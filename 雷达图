@@ -1,0 +1,85 @@
+option = {
+   
+    legend: {
+        data: ['中国建筑', '中国交建'],
+        left: 'center',
+        
+        textStyle: {
+            fontFamily: '宋体',
+            fontSize:16
+        }
+    },
+    radar: {
+        indicator: [
+            { name: '2019', max: 100 },
+            { name: '2020', max: 100 },
+            { name: '2021', max: 100 },
+            { name: '2022', max: 100 },
+            { name: '2023', max: 100 }
+        ],
+        shape: 'polygon',
+        
+        splitNumber: 5,
+        name: {
+            textStyle: {
+                fontFamily: 'Times New Roman'
+            }
+        },
+    },
+    series: [
+        {
+            name: '资产负债率',
+            type: 'radar',
+            data: [
+                {
+                    value: [79.53, 81.21, 81.28, 81.37, 82.09],
+                    name: '中国交建',
+                    itemStyle: {
+                        color: '#004bbd'
+                    },
+                    lineStyle: {
+                        color: '#004bbd',
+                        width: 2
+                    },
+                    symbol: 'circle',
+                    symbolSize: 8,  // Increase the size of the symbol
+                    label: {
+                        show: true,
+                        formatter: function(params) {
+                            return params.value;
+                        },
+                        color: '#004bbd',
+                        fontFamily: 'Times New Roman',
+                        fontSize: 16,  // Increase font size
+                        distance: 10,  // Add distance between label and point to reduce overlap
+                        position: 'top',  // Position the labels above the points
+                    }
+                },
+                {
+                    value: [86.37, 86.30, 85.57, 85.51, 85.27],
+                    name: '中国建筑',
+                    itemStyle: {
+                        color: '#429777'
+                    },
+                    lineStyle: {
+                        color: '#429777',
+                        width: 2
+                    },
+                    symbol: 'circle',
+                    symbolSize: 8,  // Increase the size of the symbol
+                    label: {
+                        show: true,
+                        formatter: function(params) {
+                            return params.value;
+                        },
+                        color: '#429777',
+                        fontFamily: 'Times New Roman',
+                        fontSize: 16,  // Increase font size
+                        distance: 10,  // Add distance between label and point to reduce overlap
+                        position: 'bottom',  // Position the labels below the points
+                    }
+                }
+            ]
+        }
+    ]
+};
